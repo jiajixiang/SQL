@@ -1,0 +1,98 @@
+#include "mainwindow.h"
+#include "login.h"
+#include "client.h"
+
+MainWindow::MainWindow(QString a,QString b,QWidget *parent)
+    : strU(a),strP(b),QMainWindow(parent)
+{
+    resize(610,625);
+    setWindowTitle(tr("滑稽图书管理系统"));
+    A1=new QAction(tr("增加图书"),this);
+    A1->setShortcuts(QKeySequence::Open);
+    A1->setStatusTip(tr("&Add books..."));
+
+    A2=new QAction(tr("删除图书"),this);
+    A2->setShortcuts(QKeySequence::Open);
+    A2->setStatusTip(tr("&Drop books..."));
+
+    A3=new QAction(tr("修改图书"),this);
+    A3->setShortcuts(QKeySequence::Open);
+    A3->setStatusTip(tr("&Modify the book..."));
+
+    A4=new QAction(tr("查询图书"),this);
+    A4->setShortcuts(QKeySequence::Open);
+    A4->setStatusTip(tr("&Check the book..."));
+
+    A5=new QAction(tr("借阅图书"),this);
+    A5->setShortcuts(QKeySequence::Open);
+    A5->setStatusTip(tr("&Borrow books..."));
+
+    A6=new QAction(tr("还回图书"),this);
+    A6->setShortcuts(QKeySequence::Open);
+    A6->setStatusTip(tr("&Also back to the book..."));
+    myftp =new FtpCLient;
+    if(strU=="admin"){
+        QToolBar *t1 = addToolBar(tr("Tool Bar 3"));
+        QToolBar *t2 = addToolBar(tr("Tool Bar 2"));
+        QToolBar *t3 = addToolBar(tr("Tool Bar 3"));
+        QToolBar *t4 = addToolBar(tr("Tool Bar 4"));
+        A1->setShortcuts(QKeySequence::Open);
+        A2->setShortcuts(QKeySequence::Open);
+        A3->setShortcuts(QKeySequence::Open);
+        A4->setShortcuts(QKeySequence::Open);
+        t1->addAction(A1);
+        t2->addAction(A2);
+        t3->addAction(A3);
+        t4->addAction(A4);
+        //connect(pB,SIGNAL(clicked(bool)),this,SLOT(Login()));
+        QObject::connect(A1,&QAction::triggered,this,&MainWindow::addBook);
+        QObject::connect(A2,&QAction::triggered,this,&MainWindow::deleteBook);
+        QObject::connect(A3,&QAction::triggered,this,&MainWindow::modifyNBook);
+        QObject::connect(A4,&QAction::triggered,this,&MainWindow::checkBook);
+    }
+    else{
+        QToolBar *t5 = addToolBar(tr("Tool Bar 5"));
+        QToolBar *t6 = addToolBar(tr("Tool Bar 6"));
+        A5->setShortcuts(QKeySequence::Open);
+        A6->setShortcuts(QKeySequence::Open);
+        t5->addAction(A5);
+        t6->addAction(A6);
+        QObject::connect(A5,&QAction::triggered,this,&MainWindow::borrowBook);
+        QObject::connect(A6,&QAction::triggered,this,&MainWindow::deleteBook);
+    }
+    this->show();
+}
+
+MainWindow::~MainWindow()
+{
+
+}
+void MainWindow::User_admin(){
+
+}
+int MainWindow::getRant(){
+    return rant;
+}
+void MainWindow::switchPage(){
+
+}
+
+void MainWindow::addBook(){
+    
+    myftp->FtpPut();
+}
+void MainWindow::deleteBook(){
+
+}
+void MainWindow::modifyNBook(){
+
+}
+void MainWindow::checkBook(){
+
+}
+void MainWindow::borrowBook(){
+         
+}
+void MainWindow::returnBook(){
+
+}

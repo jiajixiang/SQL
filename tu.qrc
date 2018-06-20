@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>17.jpg</file>
+        <file>70.jpg</file>
+        <file>拉斐尔.jpg</file>
+        <file>魔兽.jpg</file>
+        <file>鲨海.jpg</file>
+        <file>远航.jpg</file>
+        <file>战狼2.jpg</file>
+        <file>爱情三脚猫.jpg</file>
+        <file>神雕侠侣.jpg</file>
+        <file>难念的经.jpg</file>
+        <file>英伦对决.jpg</file>
+    </qresource>
+</RCC>
